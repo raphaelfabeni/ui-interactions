@@ -1,0 +1,18 @@
+@import '../../common/button'
+@import '../../common/toggle/full-before'
+
+.ui-toggle-10
+	button()
+	
+	&:before
+		full-before()
+		left 0
+		bottom 0
+		transform-origin bottom left
+		transform rotate(90deg)
+	
+	&.is-active
+		color #fff
+
+		&:before
+			transform rotate(0)

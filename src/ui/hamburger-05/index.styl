@@ -1,0 +1,28 @@
+@import '../../common/hamburger/01'
+
+.ui-hamburger-05
+	hamburger-01()
+	transition background-size .3s .2s ease
+	
+	&:before
+		top 0
+	
+	&:after
+		bottom 0
+	
+	&:before,
+	&:after
+		transition .3s ease
+		
+	&.is-active
+		background-size 0 0		
+		
+		&:before,
+		&:after
+			transition-delay .3s
+		
+		&:before
+			transform translateY(200%) rotate(45deg)
+		
+		&:after
+			transform translateY(-200%) rotate(-45deg)

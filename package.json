@@ -1,0 +1,28 @@
+{
+  "name": "ui-interactions",
+  "version": "1.0.0",
+  "description": "Simple and ready-to-use user interface interactions.",
+  "main": "index.js",
+  "scripts": {
+    "ui": "node .core/index.js",
+    "start": "webpack-dev-server",
+    "build:dev": "rimraf dist && webpack --mode=development && rimraf dist/*.js",
+    "build:prod": "rimraf dist && webpack --mode=production && rimraf dist/*.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "2.1.0",
+    "html-loader": "^0.5.5",
+    "inquirer": "^6.2.2",
+    "mini-css-extract-plugin": "^0.5.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "rimraf": "^2.6.3",
+    "style-loader": "0.20.3",
+    "stylus": "0.54.5",
+    "stylus-loader": "3.0.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  }
+}

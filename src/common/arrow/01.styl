@@ -1,0 +1,28 @@
+@import '../variables'
+
+half-arrow-down()
+	position relative
+	width 30px
+	height @width
+	border none
+	background-color transparent
+	
+	&:before,
+	&:after
+		content ''
+		background-color $default-color
+		position absolute
+		top 50%
+		width 1px
+		height calc(70% - 1px)
+		margin-top -35%
+
+	&:before
+		left 50%
+		margin-left -25%
+		transform rotate(-45deg)
+
+	&:after
+		right 50%
+		margin-right -25%
+		transform rotate(45deg)

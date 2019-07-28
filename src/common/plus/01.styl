@@ -1,0 +1,23 @@
+@import '../variables'
+
+plus()
+	position relative
+	cursor pointer
+	border none
+	background-color transparent
+	width 30px
+	height @width
+	
+	&:before,
+	&:after
+		content ""
+		height 20%
+		width 100%
+		background-color $default-color
+		position absolute
+		right 0
+		top 50%
+		margin-top -10%
+	
+	&:before
+		transform rotate(90deg)

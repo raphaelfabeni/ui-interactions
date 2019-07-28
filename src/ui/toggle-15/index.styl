@@ -1,0 +1,32 @@
+@import '../../common/button'
+
+.ui-toggle-15
+	button()
+	
+	&:before,
+	&:after
+		top 0
+		position absolute
+		width calc(50% + 20px)
+		height 100%
+		content ''
+		background-color $default-color
+		transition transform .35s ease
+		z-index -1
+		
+	&:before
+		left 0
+		transform skewX(-20deg) translateX(calc(-100% - 20px))
+	
+	&:after
+		right 0
+		transform skewX(-20deg) translateX(calc(100% + 20px))
+	
+	&.is-active
+		color #fff
+		
+		&:before
+			transform skewX(-20deg) translateX(-20px)
+		
+		&:after
+			transform skewX(-20deg) translateX(20px)

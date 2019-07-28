@@ -1,0 +1,29 @@
+@import '../../common/button'
+
+.ui-toggle-05
+	button()
+	
+	&:before,
+	&:after
+		position absolute
+		content ''
+		background-color $default-color
+		width 50%
+		top 0
+		height 100%
+		transition transform .3s ease
+		z-index -1
+	
+	&:before
+		left 0
+		transform translateX(-100%)
+	
+	&:after
+		right 0
+		transform translateX(100%)
+	
+	&.is-active
+		color #fff
+		&:before,
+		&:after
+			transform translateX(0)

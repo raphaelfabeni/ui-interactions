@@ -1,0 +1,24 @@
+@import '../../common/hamburger/02'
+
+.ui-hamburger-03
+	hamburger-02()
+	transition background-size .2s .45s ease
+
+	&:before,
+	&:after
+		left 0
+		
+	&.is-active
+		background-size 0 40%
+		transition-delay 0s
+		
+		&:before,
+		&:after
+			width 100%
+			transition width .3s .2s ease, transform .3s .4s ease
+		
+		&:before
+			transform rotate(-45deg)
+		
+		&:after
+			transform rotate(45deg)

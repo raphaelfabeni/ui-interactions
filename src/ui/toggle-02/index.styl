@@ -1,0 +1,15 @@
+@import '../../common/toggle/01'
+@import '../../common/button'
+
+.ui-toggle-02
+	button()
+	toggle-01()
+	
+	&:before
+		transform translateX(calc(100% + 1px))
+
+	&.is-active
+		
+		&:before
+			transform translateX(0)
+	
