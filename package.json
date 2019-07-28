@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "fontfaceobserver": "2.0.13",
-    "pug-loader": "2.4.0"
+    "pug-loader": "2.4.0",
+    "push-dir": "^0.4.1"
   }
 }
