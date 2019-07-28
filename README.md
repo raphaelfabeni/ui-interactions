@@ -9,6 +9,9 @@
 **Table of contents**
 
 - [Why?](#why)
+- [How does it work?](#how-does-it-work)
+- [Contributing?](#contributing)
+- [Spreading the word?](#spreading-the-word)
 
 ## Why
 
