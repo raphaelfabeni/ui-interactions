@@ -4,6 +4,7 @@ mixin Head()
 	- const description = 'UI interactions using one element and pure CSS. Because we love UI interactions and CSS!';
 	- const url = 'https://raphaelfabeni.com/ui-interactions';
 	- const baseURL = 'https://raphaelfabeni.com';
+	- const shareImage = 'https://user-images.githubusercontent.com/1345662/62012777-f3fe0b00-b160-11e9-8268-a0940a7cd592.png';
 
 	meta(charset="UTF-8")
 	meta(name="viewport" content="width=device-width, initial-scale=1")
@@ -24,6 +25,8 @@ mixin Head()
 	link(rel="canonical" href!=url)
 	meta(property="og:url" content!=url)
 	meta(name="twitter:url" content!=url)
+
+	meta(property="og:image" content!=shareImage)
 
 	meta(name="twitter:card" content="summary")
 	meta(name="twitter:creator" content="@raphaelfabeni")
