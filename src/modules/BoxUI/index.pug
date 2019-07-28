@@ -1,0 +1,27 @@
+mixin BoxUI(uiName, uiHTML, index)
+	- const cssFile = require(`../../assets/uis/${uiName}.css`)
+	section.box-ui
+		div.box-ui__reference #!{index + 1}
+
+		div.box-ui__tabs
+			button.box-ui__tabs-button.is-active(data-tab-button=uiName data-tab-index="1") UI
+			button.box-ui__tabs-button(data-tab-button=uiName data-tab-index="2") HTML
+			button.box-ui__tabs-button(data-tab-button=uiName data-tab-index="3") CSS
+
+		div.box-ui__content
+
+			div.box-ui__example.box-ui__content-item.is-active(data-tab-content=uiName data-tab-index="1")
+				button.box-ui__code-action(data-action-ui=`${uiName}`) click me
+				div(data-ui=`${uiName}`) !{uiHTML}
+
+			div.box-ui__code.box-ui__content-item(data-tab-content=uiName data-tab-index="2")
+				button.box-ui__code-action(data-copy-ui data-clipboard-target=`#${uiName}-markup`) copy
+				textarea.box-ui__code-textarea(id=`${uiName}-markup`) #{uiHTML}
+				pre
+					code.language-html #{uiHTML}
+
+			div.box-ui__code.box-ui__content-item(data-tab-content=uiName data-tab-index="3")
+				button.box-ui__code-action(data-copy-ui data-clipboard-target=`#${uiName}-css`) copy
+				textarea.box-ui__code-textarea(id=`${uiName}-css`) #{cssFile}
+				pre
+					code.language-css #{cssFile}

@@ -1,0 +1,34 @@
+// Boxes
+// ==========================================================================
+.category
+	margin-bottom 45px
+	
+	&:last-child
+		margin-bottom 0
+	
+	&__title
+		font-size 24px
+		color #fff
+		margin-bottom 15px
+		border-bottom solid 1px rgba(255, 255, 255, .5)
+		padding-bottom 15px
+		font-family $font-title
+		font-weight $font-title--regular
+	
+	&__list
+		display flex
+		flex-wrap wrap
+		
+		+below(1000px)
+			justify-content space-between
+		
+		> *
+			width 32%
+			margin-left 2%
+			
+			&:nth-child(3n + 1)
+				margin-left 0
+			
+			+below(1000px)
+				width 48%
+				margin 0

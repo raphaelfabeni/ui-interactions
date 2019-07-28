@@ -1,88 +1,126 @@
-// NPM Packages
 const path = require('path')
-const glob = require('glob')
 const webpack = require('webpack')
-
-// Source & Dist
-const source = path.resolve(__dirname, 'src')
-const dist = path.resolve(__dirname, 'dist')
-
-// Plugins
+const rupture = require('rupture')
+const postStylus = require('poststylus')
+const autoprefixer = require('autoprefixer')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 
-// Files
-const entryFiles = glob.sync(`./src/ui/**/*.styl`)
+// Routes
+const routes = require('./routes')
 
-//
 module.exports = (env, argv) => {
-
-	// Env
-	const DEV = 'development';
-	const currentEnvironment = argv.mode || DEV;
-	const isDev = currentEnvironment === DEV;
+	const aditionalCSSLoader = argv.mode === 'production'
+		? [MiniCssExtractPlugin.loader]
+		: []
 
 	return {
-		entry: entryFiles.reduce(entries, {
-			'all': ['./src/all.styl']
-		}),
-		
+		entry: {
+			main: './src/main.js',
+			...routes.reduce((prev, { name, entry }) => ({
+				...prev,
+				[name]: entry
+			}), {})
+		},
 		output: {
-	    path: path.resolve(__dirname, 'dist'),
-	    filename: '[name].js'
-	  },
-
-		resolve: {
-			modules: [source, 'node_modules']
+			publicPath: '/'
 		},
-
-		optimization: {
-			minimizer: isDev ? [] : [new OptimizeCSSAssetsPlugin({})]
-		},
-
 		module: {
 			rules: [
 				{
-					test: /\.html$/,
-					use: [
-						{
-							loader: "html-loader",
-							options: { minimize: true }
+					test: [/\.jpg$/, /\.png$/, /\.svg$/, /\.pdf$/],
+					use: {
+						loader: 'url-loader',
+						query: {
+							limit: 1000,
+							name: 'static/[name].[ext]'
 						}
-					]
+					}
 				},
 				{
-					test: /\.styl$/,
+					test: /\.js$/,
+					exclude: /node_modules/,
+					use: {
+						loader: 'babel-loader'
+					}
+				},
+				{
+					test: /.pug$/,
+					use: {
+						loader: 'pug-loader',
+						query: {}
+					}
+				},
+				{
+        	test: /\.css$/,
+					use: ['css-loader'],
+				},
+				{
+					test: /.styl$/,
 					use: [
-	          MiniCssExtractPlugin.loader,
-						'css-loader',
-						'stylus-loader?paths[]=./src'
-	        ]
+						{
+							loader: 'style-loader',
+							options: {
+								hmr: true
+							}
+						},
+						...aditionalCSSLoader,
+						{
+							loader: 'css-loader',
+							options: {
+								importLoaders: 1,
+								modules: false,
+								sourceMap: true,
+								minimize: true,
+								discardComments: { removeAll: true }
+							}
+						},
+						{ loader: 'stylus-loader' }
+					]
 				}
 			]
 		},
-
 		plugins: [
-			new MiniCssExtractPlugin('[name].css'),
-			new webpack.HotModuleReplacementPlugin()
+			...routes.map(({ name, filename }) => 
+				new HtmlWebpackPlugin({
+					inject: true,
+					chunks: ['main', name],
+					template: `./src/pages/${name}/index.pug`,
+					filename
+				})
+			),
+			new MiniCssExtractPlugin({
+				fileName: '[name].css'
+			}),
+			new webpack.LoaderOptionsPlugin({
+				test: /\.styl$/,
+				stylus: {
+					preferPathResolver: 'webpack',
+					default: {
+						use: [
+							postStylus([
+								autoprefixer({ browsers: ['ie 10'] }),
+								'css-mqpacker'
+							]),
+							rupture()
+						]
+					}
+				},
+				options: {
+					context: __dirname
+				}
+			})
 		],
-
-		devServer: {
-			contentBase: [
-				path.resolve(__dirname, "src/ui"),
-				path.resolve(__dirname, "src/common")
-	    ],
-			watchContentBase: true,
-			compress: true,
-	    port: 9001
+		resolve: {
+			extensions: ['.ts', '.js', '*'],
+			alias: {
+				assets: path.resolve(__dirname, './src/assets'),
+				modules: path.resolve(__dirname, './src/modules')
+			},
+			modules: [
+				path.resolve(__dirname, './src'),
+				'node_modules'
+			]
 		}
 	}
-
-}
-
-// Helpers
-function entries(acc, file) {
-	const dirname = path.basename(path.dirname(file))
-	acc[`ui-${dirname}`] = dirname in acc ? acc[dirname].concat(file) : [file]
-	return acc
 }

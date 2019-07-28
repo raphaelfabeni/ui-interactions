@@ -1,0 +1,16 @@
+.gradient-ui
+	top 0
+	position fixed
+	width 100vw
+	height 100vh
+	transition opacity 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) 0s
+	background linear-gradient(to right, $gradient-1, $gradient-2)
+	z-index $z-index--gradient
+	
+	&--green
+		background-image: linear-gradient( 156.8deg,  rgba(30,144,231,1) 27.1%, rgba(67,101,225,1) 77.8% );
+		opacity 0
+		z-index $z-index--gradient-overlay
+		
+		&.is-active
+			opacity 1

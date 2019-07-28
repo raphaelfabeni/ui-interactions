@@ -1,28 +1,51 @@
 {
   "name": "ui-interactions",
-  "version": "1.0.0",
-  "description": "Simple and ready-to-use user interface interactions.",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "UI Interactions",
+  "main": "app.js",
   "scripts": {
-    "ui": "node .core/index.js",
-    "start": "webpack-dev-server",
-    "build:dev": "rimraf dist && webpack --mode=development && rimraf dist/*.js",
-    "build:prod": "rimraf dist && webpack --mode=production && rimraf dist/*.js"
+    "prepare": "node ./start.js",
+    "start": "webpack-dev-server --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raphaelfabeni/ui-interactions.git"
   },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raphaelfabeni/ui-interactions/issues"
+  },
+  "homepage": "https://github.com/raphaelfabeni/ui-interactions#readme",
   "devDependencies": {
-    "css-loader": "2.1.0",
-    "html-loader": "^0.5.5",
-    "inquirer": "^6.2.2",
-    "mini-css-extract-plugin": "^0.5.0",
-    "optimize-css-assets-webpack-plugin": "^5.0.1",
-    "rimraf": "^2.6.3",
+    "autoprefixer": "8.1.0",
+    "babel-core": "6.26.0",
+    "babel-loader": "7.1.2",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
+    "babel-preset-env": "1.6.1",
+    "babel-preset-react": "6.24.1",
+    "css-loader": "0.28.11",
+    "css-mqpacker": "6.0.2",
+    "extract-text-webpack-plugin": "4.0.0-beta.0",
+    "file-loader": "1.1.11",
+    "html-loader": "0.5.5",
+    "html-webpack-plugin": "3.0.6",
+    "mini-css-extract-plugin": "0.2.0",
+    "poststylus": "1.0.0",
+    "pug": "2.0.1",
+    "pug-html-loader": "1.1.5",
+    "rupture": "0.7.1",
     "style-loader": "0.20.3",
     "stylus": "0.54.5",
     "stylus-loader": "3.0.2",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.1",
-    "webpack-dev-server": "^3.1.14"
+    "url-loader": "1.0.1",
+    "webpack": "4.20.2",
+    "webpack-cli": "3.1.1",
+    "webpack-dev-server": "3.1.0"
+  },
+  "dependencies": {
+    "fontfaceobserver": "2.0.13",
+    "pug-loader": "2.4.0"
   }
 }

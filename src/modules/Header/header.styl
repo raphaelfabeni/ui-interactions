@@ -1,0 +1,45 @@
+@keyframes pulse {
+  to { transform: scale(1.2); }
+}
+
+.header
+	width 100%
+	z-index $z-index--header
+	padding 20px 0
+	position relative
+	
+	// Title
+	// ==========================================================================
+	&__title
+		font-family $font-title
+		font-size 40px
+		color #fff
+		text-align center
+		font-weight $font-title--regular
+		text-shadow 0px 0px 1px rgba(0, 0, 0, .5)
+		margin-bottom 15px
+		
+		> span
+			color $gold
+	
+	// Label
+	// ==========================================================================
+	&__label
+		font-family $font-title
+		font-size 24px
+		line-height 1.6
+		color #fff
+		text-align center
+		font-weight $font-title--regular
+		
+		> span
+			font-weight $font-title--medium
+			
+			.heart
+				animation pulse .5s linear infinite alternate
+	
+	// Repo
+	// ==========================================================================
+	&__repo
+		text-align center
+		padding-top 20px
