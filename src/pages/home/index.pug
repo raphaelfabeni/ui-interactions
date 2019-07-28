@@ -7,17 +7,18 @@ include ~modules/Gradient/index.pug
 
 - const { UIs } = require('./data.js')
 
-head
-	+Head()
-body
-	+Header()
-	+Gradient()
-	main.main
-		div.container
-			for group in UIs
-				div.category
-					h2.category__title=group.category
-					div.category__list
-						for ui, index in group.items
-							+BoxUI(ui.name, ui.markup, index)
-	+Footer()
+html
+	head
+		+Head()
+	body
+		+Header()
+		+Gradient()
+		main.main
+			div.container
+				for group in UIs
+					div.category
+						h2.category__title=group.category
+						div.category__list
+							for ui, index in group.items
+								+BoxUI(ui.name, ui.markup, index)
+		+Footer()
