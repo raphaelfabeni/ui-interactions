@@ -23,7 +23,7 @@ module.exports = (env, argv) => {
 			}), {})
 		},
 		output: {
-			publicPath: '/'
+			publicPath: '/ui-interactions/'
 		},
 		module: {
 			rules: [
