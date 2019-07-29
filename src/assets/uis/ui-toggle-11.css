@@ -18,6 +18,7 @@
   z-index: -1;
   background-color: #2980b9;
   right: -1px;
+  width: calc(100% + 1px);
   top: 0;
   transform-origin: top right;
   transform: rotate(-90deg);
