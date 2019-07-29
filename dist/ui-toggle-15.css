@@ -13,7 +13,7 @@
 .ui-toggle-15:after {
   top: 0;
   position: absolute;
-  width: calc(50% + 20px);
+  width: calc(50% + 21px);
   height: 100%;
   content: '';
   background-color: #2980b9;

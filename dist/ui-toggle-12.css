@@ -19,6 +19,7 @@
   background-color: #2980b9;
   right: 0;
   top: -1px;
+  height: calc(100% + 1px);
   transform-origin: top right;
   transform: rotate(90deg);
 }

@@ -946,6 +946,7 @@
   z-index: -1;
   background-color: #2980b9;
   right: -1px;
+  width: calc(100% + 1px);
   top: 0;
   transform-origin: top right;
   transform: rotate(-90deg);
@@ -977,6 +978,7 @@
   background-color: #2980b9;
   right: 0;
   top: -1px;
+  height: calc(100% + 1px);
   transform-origin: top right;
   transform: rotate(90deg);
 }
@@ -1007,6 +1009,7 @@
   background-color: #2980b9;
   right: 0;
   bottom: -1px;
+  height: calc(100% + 1px);
   transform-origin: bottom right;
   transform: rotate(-90deg);
 }
@@ -1037,6 +1040,7 @@
   background-color: #2980b9;
   right: -1px;
   bottom: 0;
+  width: calc(100% + 1px);
   transform-origin: bottom right;
   transform: rotate(90deg);
 }
@@ -1061,7 +1065,7 @@
 .ui-toggle-15:after {
   top: 0;
   position: absolute;
-  width: calc(50% + 20px);
+  width: calc(50% + 21px);
   height: 100%;
   content: '';
   background-color: #2980b9;
