@@ -28,7 +28,12 @@
 			
 			&:nth-child(3n + 1)
 				margin-left 0
-			
+				
 			+below(1000px)
-				width 48%
 				margin 0
+			
+			+between(740px, 1000px)
+				width 48%
+			
+			+below(740px)
+				width 100%
