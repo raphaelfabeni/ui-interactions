@@ -10,26 +10,12 @@
 		transform translateY(-100%)
 		transform-origin center top	
 
-
 	&.is-active
-		animation: cartoon-container-active  500ms ease-out forwards;
+		animation: cartoon-container  500ms ease-out forwards;
 		&:before
 			animation: cartoon-before 450ms 390ms ease-out forwards;
 
 @keyframes cartoon-container 
-	0%
-		transform scale(1, 1)
-		color $default-color
-	50%
-		transform scale(1, 1.4)
-	80%
-		transform scale(1, 0.7)
-		color $default-color
-	100%
-		transform scale(1, 1)
-		color #fff
-	
-@keyframes cartoon-container-active 
 	0%
 		transform scale(1, 1)
 		color $default-color
