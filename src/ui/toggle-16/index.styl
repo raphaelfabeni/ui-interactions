@@ -1,0 +1,39 @@
+@import '../../common/toggle/01'
+@import '../../common/button'
+
+.ui-toggle-16
+	button()
+	toggle-01()
+
+	transform-origin center top	
+	&:before
+		transform translateY(-100%)
+		transform-origin center top	
+
+	&.is-active
+		animation: cartoon-container  500ms ease-out forwards;
+		&:before
+			animation: cartoon-before 450ms 390ms ease-out forwards;
+
+@keyframes cartoon-container 
+	0%
+		transform scale(1, 1)
+		color $default-color
+	50%
+		transform scale(1, 0.6)
+	80%
+		transform scale(1, 1.4)
+		color $default-color
+	100%
+		transform scale(1, 1)
+		color #fff
+
+@keyframes cartoon-before
+	0%
+		transform translateY(-100%)
+	50%
+		transform translateY(30%)
+	80%
+		transform translateY(-10%)
+	100%
+		transform translateY(0)
