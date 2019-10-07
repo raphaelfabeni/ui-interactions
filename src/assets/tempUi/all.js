@@ -1,3 +1,4 @@
+module.exports = `
 .ui-arrow-01 {
   position: relative;
   width: 30px;
@@ -1250,3 +1251,4 @@
   }
 }
 
+`

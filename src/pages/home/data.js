@@ -134,6 +134,10 @@ module.exports = {
 				{
 					name: 'ui-toggle-15',
 					markup: '<button class="ui-toggle-15">Hey!</button>'
+				},
+				{
+					name: 'ui-toggle-16',
+					markup: '<button class="ui-toggle-16">Hey!</button>'
 				}
 			]
 		}
