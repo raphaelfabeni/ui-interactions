@@ -1,1 +1,38 @@
-.ui-toggle-06{padding:15px 25px;color:#2980b9;cursor:pointer;border:1px solid #2980b9;font-size:16px;position:relative;z-index:1;overflow:hidden;transition:color .3s ease}.ui-toggle-06:after,.ui-toggle-06:before{position:absolute;content:"";background-color:#2980b9;width:100%;left:0;height:50%;transition:transform .3s ease;z-index:-1}.ui-toggle-06:before{top:0;transform:translateY(-100%)}.ui-toggle-06:after{bottom:0;transform:translateY(100%)}.ui-toggle-06.is-active{color:#fff}.ui-toggle-06.is-active:after,.ui-toggle-06.is-active:before{transform:translateY(0)}
+.ui-toggle-06 {
+  padding: 15px 25px;
+  color: #2980b9;
+  cursor: pointer;
+  border: solid 1px #2980b9;
+  font-size: 16px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+.ui-toggle-06:before,
+.ui-toggle-06:after {
+  position: absolute;
+  content: '';
+  background-color: #2980b9;
+  width: 100%;
+  left: 0;
+  height: 50%;
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+.ui-toggle-06:before {
+  top: 0;
+  transform: translateY(-100%);
+}
+.ui-toggle-06:after {
+  bottom: 0;
+  transform: translateY(100%);
+}
+.ui-toggle-06.is-active {
+  color: #fff;
+}
+.ui-toggle-06.is-active:before,
+.ui-toggle-06.is-active:after {
+  transform: translateY(0);
+}
+
