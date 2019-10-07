@@ -1,0 +1,80 @@
+@import '../../common/variables'
+
+
+.ui-ghost-directional
+  --borderWidth 2
+  --buttonColor $default-color
+
+  background transparent
+  border calc(var(--borderWidth) * 1px) solid var(--buttonColor)
+  color var(--buttonColor)
+  cursor pointer
+  font-size 18px
+  font-weight bold
+  outline transparent
+  padding 8px 16px
+  position relative
+  transition box-shadow .15s ease
+
+  &:active
+    box-shadow 0 0 0 #888
+
+  span
+    -webkit-clip-path var(--clip)
+    bottom calc(var(--borderWidth) * -1px)
+    clip-path var(--clip)
+    left calc(var(--borderWidth) * -1px)
+    opacity 0.25
+    position absolute
+    right calc(var(--borderWidth) * -1px)
+    top calc(var(--borderWidth) * -1px)
+    z-index 1
+
+    &:nth-of-type(1):hover
+    &:nth-of-type(2):hover
+    &:nth-of-type(3):hover
+    &:nth-of-type(4):hover
+      --clip polygon(0 0, 100% 0, 100% 100%, 0 100%)
+      z-index 2
+
+    &:nth-of-type(1):hover ~ b:nth-of-type(1)
+    &:nth-of-type(2):hover ~ b:nth-of-type(2)
+    &:nth-of-type(3):hover ~ b:nth-of-type(3)
+    &:nth-of-type(4):hover ~ b:nth-of-type(4)
+        --clip inset(0 0 0 0)
+
+    &:nth-of-type(1)
+      --clip polygon(0 0, 100% 0, 50% 50%, 50% 50%)
+
+    &:nth-of-type(2)
+      --clip polygon(100% 0, 100% 100%, 50% 50%)
+
+    &:nth-of-type(3)
+      --clip polygon(0 100%, 100% 100%, 50% 50%)
+
+    &:nth-of-type(4)
+      --clip polygon(0 0, 0 100%, 50% 50%)
+
+  b
+    -webkit-clip-path var(--clip)
+    background var(--buttonColor)
+    border calc(var(--borderWidth) * 1px) solid var(--buttonColor)
+    bottom calc(var(--borderWidth) * -1px)
+    clip-path var(--clip)
+    color var(--bg, #fafafa)
+    font-weight bold
+    left calc(var(--borderWidth) * -1px)
+    padding 8px 16px
+    position absolute
+    right calc(var(--borderWidth) * -1px)
+    top calc(var(--borderWidth) * -1px)
+    transition clip-path .25s ease
+
+    &:nth-of-type(1)
+      --clip inset(0 0 100% 0)
+    &:nth-of-type(2)
+      --clip inset(0 0 0 100%)
+    &:nth-of-type(3)
+      --clip inset(100% 0 0 0)
+    &:nth-of-type(4)
+      --clip inset(0 100% 0 0)
