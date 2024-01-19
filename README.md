@@ -4,7 +4,7 @@
 
 > Ready-to-use UI interactions using only one element and pure CSS. Because we love UI interactions and CSS!
 
-[Check it out]([https://raphaelfabeni.com/ui-interactions/](https://ui-interactions.raphaelfabeni.com/))
+[Check it out](https://ui-interactions.raphaelfabeni.com/)
 
 **Table of contents**
 
